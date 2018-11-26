@@ -1,0 +1,117 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>priv.rlliu</groupId>
+  <artifactId>javaweb</artifactId>
+  <packaging>war</packaging>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>javaweb Maven Webapp</name>
+  <url>http://maven.apache.org</url>
+  
+  
+  <!--　参数，版本号 -->
+  <properties>
+  	<sping.version>4.3.6.RELEASE</sping.version>
+  	<mybatis.version>3.4.6</mybatis.version>
+  	<servlet.version>3.1.0</servlet.version>
+  	<junit.version>3.8.1</junit.version>
+  	<fasterxml.jackson.version>2.5.1</fasterxml.jackson.version>
+  	<javax.servlet.version>1.2</javax.servlet.version>
+  </properties>
+  
+  <dependencies>
+   <!-- Servlet API -->
+   <!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
+	<dependency>
+	    <groupId>javax.servlet</groupId>
+	    <artifactId>javax.servlet-api</artifactId>
+	    <version>${servlet.version}</version>
+	    <scope>provided</scope>
+	</dependency>
+	
+	<!-- 修复 java.lang.NoClassDefFoundError: javax/servlet/jsp/jstl/core/Config 问题-->
+	<dependency>
+		<groupId>javax.servlet</groupId>
+		<artifactId>jstl</artifactId>
+		<version>${javax.servlet.version}</version>
+	</dependency>
+	
+	<!-- <dependency>
+		<groupId>taglibs</groupId>
+		<artifactId>standard</artifactId>
+		<version>1.1.2</version>
+	</dependency> -->
+    
+   <!-- SpringMVC 组件 -->
+   <!-- https://mvnrepository.com/artifact/org.springframework/spring-webmvc -->
+	<dependency>
+	    <groupId>org.springframework</groupId>
+	    <artifactId>spring-webmvc</artifactId>
+	    <version>${sping.version}</version>
+	</dependency>
+	
+   <!-- 配置JSON视图  与 @ResponseBody 配合使用，使用该注解的方法返回值将以json格式输出返回，跳过view解析器-->
+	<dependency>
+	 	<groupId>com.fasterxml.jackson.core</groupId>  
+        <artifactId>jackson-core</artifactId>  
+        <version>${fasterxml.jackson.version}</version>  
+    </dependency>  
+    <dependency>  
+         <groupId>com.fasterxml.jackson.core</groupId>  
+         <artifactId>jackson-databind</artifactId>  
+         <version>${fasterxml.jackson.version}</version>  
+     </dependency>  
+     <dependency>  
+         <groupId>com.fasterxml.jackson.core</groupId>  
+         <artifactId>jackson-annotations</artifactId>  
+         <version>${fasterxml.jackson.version}</version>  
+      </dependency>
+   
+   <!-- Spring 组件 -->
+   <!-- https://mvnrepository.com/artifact/org.springframework/spring-context -->
+    <dependency>
+	   <groupId>org.springframework</groupId>
+	   <artifactId>spring-context</artifactId>
+	   <version>${sping.version}</version>
+    </dependency>
+    
+    
+    <!-- https://mvnrepository.com/artifact/org.springframework/spring-beans -->
+	<dependency>
+	    <groupId>org.springframework</groupId>
+	    <artifactId>spring-beans</artifactId>
+	   <version>${sping.version}</version>
+	</dependency>
+    
+   
+   <!-- Mybats 组件 -->
+   <!-- https://mvnrepository.com/artifact/org.mybatis/mybatis -->
+	<dependency>
+	    <groupId>org.mybatis</groupId>
+	    <artifactId>mybatis</artifactId>
+	    <version>${mybatis.version}</version>
+	</dependency> 	
+    
+   <!-- 日志组件 -->
+   <!-- https://mvnrepository.com/artifact/ch.qos.logback/logback-classic -->
+	<dependency>
+	    <groupId>ch.qos.logback</groupId>
+	    <artifactId>logback-classic</artifactId>
+	    <version>1.2.3</version>
+	    <scope>test</scope>
+	</dependency> 
+   
+   <!-- Test组件 --> 
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>${junit.version}</version>
+      <scope>test</scope>
+    </dependency>
+   
+  </dependencies>
+  
+  <build>
+    <finalName>javaweb</finalName>
+  </build>
+</project>

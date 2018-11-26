@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="   
+           http://www.springframework.org/schema/beans   
+           http://www.springframework.org/schema/beans/spring-beans.xsd   
+           http://www.springframework.org/schema/context   
+           http://www.springframework.org/schema/context/spring-context.xsd  
+           http://www.springframework.org/schema/mvc   
+           http://www.springframework.org/schema/mvc/spring-mvc.xsd"
+           default-lazy-init="false" >
+           
+	<!-- 扫描所有的controller -->
+	<context:component-scan base-package="javaweb.controller">  
+    	<!-- 将Service注解给去掉  -->  
+        <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>  
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Service"/>  
+    </context:component-scan>  
+    
+       <!--启动Spring MVC的注解功能完成请求和注解POJO的映射 --> 
+    <!-- 
+             处理器映射器  找对应 controller
+    <bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping" />  
+             处理器适配器 找对应 method
+    <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter" />  -->
+    
+    <!-- 以上两个bean简写方式 注册所必须的两个Bean -->
+     <mvc:annotation-driven />
+    
+    <!-- Default ViewResolver对模型视图名称的解析即在模型视图名称添加前后缀 -->  
+    <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver"
+       p:order="3"> 
+        <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
+        <property name="prefix" value="/WEB-INF/pages/"></property> 
+        <property name="suffix" value=".jsp"></property>  
+    </bean>  
+    
+	<!-- 配置JSON视图  与 @ResponseBody 配合使用，使用该注解的方法返回值将以json格式输出返回，跳过view解析器-->
+    <bean id="mappingJacksonHttpMessageConverter" class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+       <property name="supportedMediaTypes">
+           <list>
+               <value>application/json;charset=UTF-8</value>
+               <value>text/html;charset=UTF-8</value>
+           </list>
+       </property>     
+    </bean>
+
+    
+</beans>   
