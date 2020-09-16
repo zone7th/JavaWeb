@@ -2,6 +2,7 @@ package javaweb.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
  * 
@@ -19,5 +20,30 @@ public class HomeController {
 	public String home(){
 		return "home";
 	}
+
+
+	@RequestMapping(value = "/pddtestpoint")
+	@ResponseBody
+	public PddTicketNotifyOutput pddtestpoint(){
+		PddTicketNotifyOutput  ss = new PddTicketNotifyOutput();
+		PddTicketNotifyOutput.TicketNotifyResponse s = new PddTicketNotifyOutput.TicketNotifyResponse();
+		s.setSuccess(true);
+		ss.setTicketNotifyResponse(s);
+		return ss;
+	}
+
+
+	@RequestMapping(value = "/cntestpoint")
+	@ResponseBody
+	public CnGatewayResponse cntestpoint(){
+		CnGatewayResponse cc = new CnGatewayResponse();
+		cc.setSuccess(true);
+		return cc;
+	}
+
+
+
+
+
 	
 }
