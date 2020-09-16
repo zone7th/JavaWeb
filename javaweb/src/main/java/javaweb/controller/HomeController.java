@@ -24,21 +24,24 @@ public class HomeController {
 
 	@RequestMapping(value = "/pddtestpoint")
 	@ResponseBody
-	public PddTicketNotifyOutput pddtestpoint(){
-		PddTicketNotifyOutput  ss = new PddTicketNotifyOutput();
-		PddTicketNotifyOutput.TicketNotifyResponse s = new PddTicketNotifyOutput.TicketNotifyResponse();
-		s.setSuccess(true);
-		ss.setTicketNotifyResponse(s);
-		return ss;
+	public String pddtestpoint(){
+
+		String str = "{\"logistics_ticket_notify_response\":{\"is_success\":true,\"request_id\":\"16002516721957065\"}}";
+//		PddTicketNotifyOutput  ss = new PddTicketNotifyOutput();
+//		PddTicketNotifyOutput.TicketNotifyResponse s = new PddTicketNotifyOutput.TicketNotifyResponse();
+//		s.setSuccess(true);
+//		ss.setTicketNotifyResponse(s);
+		return str;
 	}
 
 
 	@RequestMapping(value = "/cntestpoint")
 	@ResponseBody
-	public CnGatewayResponse cntestpoint(){
-		CnGatewayResponse cc = new CnGatewayResponse();
-		cc.setSuccess(true);
-		return cc;
+	public String cntestpoint(){
+		String str = "{\"success\":\"true\"}";
+//		CnGatewayResponse cc = new CnGatewayResponse();
+//		cc.setSuccess(true);
+		return str;
 	}
 
 
