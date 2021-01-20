@@ -15,7 +15,7 @@
   	<mybatis.version>3.4.6</mybatis.version>
   	<servlet.version>3.1.0</servlet.version>
   	<junit.version>3.8.1</junit.version>
-  	<fasterxml.jackson.version>2.5.1</fasterxml.jackson.version>
+  	<fasterxml.jackson.version>2.12.1</fasterxml.jackson.version>
   	<javax.servlet.version>1.2</javax.servlet.version>
   </properties>
   
